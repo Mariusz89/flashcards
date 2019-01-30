@@ -2,3 +2,10 @@
   I can use the variable express to access all the methods and properties of the Express module.
 */
 const express = require('express');
+
+//The express function returns an Express application.
+const app = express();
+
+//Setup the development server using the listen method. 
+//I give this one parameter which is the port number 3000.
+app.listen(3000);
