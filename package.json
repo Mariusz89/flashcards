@@ -3,6 +3,7 @@
   "version": "",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
   }
 }
