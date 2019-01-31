@@ -12,8 +12,14 @@ app.set('view engine', 'pug');
 
 //To create a route, I used the get method on the app object.
 //The get method is used to handle the get requests to a certain URL.
-app.get('/', (request, response) => {
+app.get('/', (req, res) => {
 	response.render('index');
+});
+
+//This will then serve the cards for the app.
+//prompt,  hint are the names for variables we want the view to have access to when it's being rendered.
+app.get('/cards', (req, res) => {
+	res.render('cards', {prompt: "Who is buried in Grant´s tomb?", hint: "Think about whose tomb it is"});
 });
 
 //Setup the development server using the listen method. 
