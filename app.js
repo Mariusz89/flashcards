@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
+app.get('/hello', (req, res) => {
+	res.render('hello');
+});
+
 //This will then serve the cards for the app.
 //prompt,  hint are the names for variables we want the view to have access to when it's being rendered.
 app.get('/card', (req, res) => {
