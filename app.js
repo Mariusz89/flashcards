@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
+//Rendering the hello template.
 app.get('/hello', (req, res) => {
 	res.render('hello');
 });
