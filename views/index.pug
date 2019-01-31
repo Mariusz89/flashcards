@@ -1,6 +1,7 @@
-doctype html
-html(lang="en")
-	head
-		title Flash cards
-	body
-		p Hello
+extends layout.pug
+
+block content
+	section#content
+		h2=Welcome
+			p
+				i Hint: #{hint}
