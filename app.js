@@ -13,7 +13,7 @@ app.set('view engine', 'pug');
 //To create a route, I used the get method on the app object.
 //The get method is used to handle the get requests to a certain URL.
 app.get('/', (request, response) => {
-	response.send('Flashcards');
+	response.render('index');
 });
 
 //Setup the development server using the listen method. 
