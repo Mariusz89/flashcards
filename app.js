@@ -49,6 +49,12 @@ app.post('/hello', (req, res) => {
 	res.redirect('/');
 });
 
+//Clear the cookie in the new route, then redirect the user to the hello form.
+app.post('/goodbye', (req, res) => {
+	res.clearCookie('username', req.body.username);
+	res.redirect('/hello');
+});
+
 //This will then serve the cards for the app.
 //prompt,  hint are the names for variables we want the view to have access to when it's being rendered.
 app.get('/card', (req, res) => {
