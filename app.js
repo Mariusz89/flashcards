@@ -4,6 +4,7 @@
 const express = require('express');
 //Body-parser contains several parses, the different ways the clients can send data.
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 //The express function returns an Express application.
 const app = express();
 
@@ -11,6 +12,7 @@ const app = express();
   So, I'll need to use the urlencode parser.
 */
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 //Using the app.set method to set the view engine, To the parameter pug.
 //This line, just tells Express which template engine to use.
@@ -19,16 +21,20 @@ app.set('view engine', 'pug');
 //To create a route, I used the get method on the app object.
 //The get method is used to handle the get requests to a certain URL.
 app.get('/', (req, res) => {
-	res.render('index');
+	const name = req.cookies.username;
+	res.render('index', {name});
 });
 
 //Rendering the hello template.
 app.get('/hello', (req, res) => {
+	//we're going to read it out of the cookie we've just set.
 	res.render('hello');
 });
 
 app.post('/hello', (req, res) => {
-	res.render('hello', {name: req.body.username});
+	//This will send a cookie to the browser after we submit the form.
+	res.cookie('username', req.body.username);
+	res.redirect('/');
 });
 
 //This will then serve the cards for the app.
