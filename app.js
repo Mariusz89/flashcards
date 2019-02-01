@@ -22,7 +22,13 @@ app.set('view engine', 'pug');
 //The get method is used to handle the get requests to a certain URL.
 app.get('/', (req, res) => {
 	const name = req.cookies.username;
-	res.render('index', {name});
+	//I made an if statement checking the value of name.
+	//If it exists, we want to render the index template, otherwise redirect to the hello route.
+	if (name) {
+		res.render('index', {name});
+	} else {
+		res.redirect('/hello');
+	}
 });
 
 //Rendering the hello template.
