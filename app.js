@@ -33,8 +33,14 @@ app.get('/', (req, res) => {
 
 //Rendering the hello template.
 app.get('/hello', (req, res) => {
-	//we're going to read it out of the cookie we've just set.
-	res.render('hello');
+	const name = req.cookies.username;
+	//Redirect the user to the index page if the cookies username value is set. 
+	//Otherwise, we went to render the hello form.
+	if (name) {
+		res.redirect('/');
+	} else {
+		res.render('hello');
+	}
 });
 
 app.post('/hello', (req, res) => {
