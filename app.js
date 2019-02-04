@@ -20,9 +20,10 @@ app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
 	console.log("Hello");
-	//Creating a custom error object and storing it in ERR.
-	const err = new Error('Error');
-	next();
+	//Creating a custom error object and storing it in variable err.
+	const err = new Error('Error message');
+	//Pass in the error object as an argument to the next function call.
+	next(err);
 });
 
 //To create a route, I used the get method on the app object.
