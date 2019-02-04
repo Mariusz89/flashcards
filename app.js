@@ -21,7 +21,9 @@ app.set('view engine', 'pug');
 app.use((req, res, next) => {
 	console.log("Hello");
 	//Creating a custom error object and storing it in variable err.
-	const err = new Error('Error message');
+	const err = new Error('Not found');
+	//Send a 500 status for own download error.
+	err.status = 404;
 	//Pass in the error object as an argument to the next function call.
 	next(err);
 });
@@ -67,6 +69,17 @@ app.post('/goodbye', (req, res) => {
 //prompt,  hint are the names for variables we want the view to have access to when it's being rendered.
 app.get('/card', (req, res) => {
 	res.render('card', {prompt: "Who is buried in Grant´s tomb?", hint: "Think about whose tomb it is"});
+});
+
+//Error middleware
+app.use((err, req, res, next) => {
+	//Let's use the alternative way to set locals that you learnt about earlier.
+	res.locals.error = err;
+	//In the error handler let's read the status property I just set.
+	res.status(err.status);
+	//Pass error object as the second argument to the render function.
+	//This will give the template access to the error data.
+	res.render('error', err);
 });
 
 //Setup the development server using the listen method. 
