@@ -18,6 +18,13 @@ app.use(cookieParser());
 //This line, just tells Express which template engine to use.
 app.set('view engine', 'pug');
 
+app.use((req, res, next) => {
+	console.log("Hello");
+	//Creating a custom error object and storing it in ERR.
+	const err = new Error('Error');
+	next();
+});
+
 //To create a route, I used the get method on the app object.
 //The get method is used to handle the get requests to a certain URL.
 app.get('/', (req, res) => {
@@ -51,7 +58,7 @@ app.post('/hello', (req, res) => {
 
 //Clear the cookie in the new route, then redirect the user to the hello form.
 app.post('/goodbye', (req, res) => {
-	res.clearCookie('username', req.body.username);
+	res.clearCookie('username');
 	res.redirect('/hello');
 });
 
