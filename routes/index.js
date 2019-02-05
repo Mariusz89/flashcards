@@ -46,3 +46,5 @@ router.get('/card', (req, res) => {
 	res.render('card', {prompt: "Who is buried in Grant´s tomb?", hint: "Think about whose tomb it is"});
 });
 
+//Export this router so I can reference it in the app JS file.
+module.exports = router;
