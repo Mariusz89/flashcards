@@ -40,11 +40,5 @@ router.post('/goodbye', (req, res) => {
 	res.redirect('/hello');
 });
 
-//This will then serve the cards for the app.
-//prompt,  hint are the names for variables we want the view to have access to when it's being rendered.
-router.get('/card', (req, res) => {
-	res.render('card', {prompt: "Who is buried in Grant´s tomb?", hint: "Think about whose tomb it is"});
-});
-
 //Export this router so I can reference it in the app JS file.
 module.exports = router;

@@ -24,7 +24,7 @@ const cardRoutes = require('./routes/cards')
 app.use(mainRoutes);
 //Add a path as a first argument to mount those routes to.
 //I'll refer to these routes as the cardRoutes variable.
-app.use('/cards', cardRoutes);
+app.use('/card', cardRoutes);
 
 app.use((req, res, next) => {
 	console.log("Hello");
