@@ -13,6 +13,7 @@ const app = express();
 */
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static('public'));
 
 //Using the app.set method to set the view engine, To the parameter pug.
 //This line, just tells Express which template engine to use.

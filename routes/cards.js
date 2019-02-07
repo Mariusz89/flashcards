@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
 
 	//If site doesn't exist, I redirect to the same card,
 	if (!side) {
-		res.redirect(`/cards/${id}?side=question`);
+		return res.redirect(`/cards/${id}?side=question`);
 	};
 
 	const text = cards[id][side];

@@ -4,6 +4,10 @@ html(lang="en")
 		title Flash cards
 	body
 		include header.pug
+		p
+			if name
+				form(action='/goodbye', method='post')
+					button(type='submit') Goodbye
 		// This lets Pug know that any template extending the layout can inject its HTML there.
 		block content
 		include footer.pug
