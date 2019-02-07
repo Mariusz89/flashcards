@@ -22,6 +22,12 @@ router.get('/:id', (req, res) => {
 	const { side } = req.query;
 	//I use the ID parameter to access the elements in the card's array.
 	const { id } = req.params;
+
+	//If site doesn't exist, I redirect to the same card,
+	if (!side) {
+		res.redirect(`/cards/${id}?side=question`);
+	};
+
 	const text = cards[id][side];
 	const { hint } = cards[id];
 	//Wrap the text and the hint into an object that I can pass into the template.
