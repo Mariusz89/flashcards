@@ -5,6 +5,9 @@ block content
 		h2= text
 		p 
 			if side === 'question'
-				i Hint: #{hint}
-		
-		
+				i Hint: #{hint} 
+				br
+				br
+				a(href=`/cards/${id}?side=answer`) Answer
+			else
+				a(href=`/cards/${id}?side=question`) Question
