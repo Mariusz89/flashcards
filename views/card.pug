@@ -2,7 +2,9 @@ extends layout.pug
 	
 block content
 	section#content
-		h2=prompt
-		p
-			i Hint: #{hint}
+		h2= text
+		p 
+			if side === 'question'
+				i Hint: #{hint}
+		
 		

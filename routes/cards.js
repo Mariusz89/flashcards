@@ -16,7 +16,8 @@ router.get('/:id', (req, res) => {
 	const text = cards[id][side];
 	const { hint } = cards[id];
 	//Wrap the text and the hint into an object that I can pass into the template.
-	const templateData = { text, hint};
+	const templateData = { text, hint, side};
 	res.render('card', templateData);
+});
 
 module.exports = router;
