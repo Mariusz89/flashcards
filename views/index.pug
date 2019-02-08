@@ -3,7 +3,8 @@ extends layout.pug
 block content
 	section#content
 		h2 Welcome #{name}
-			p
-				i Hint: #{hint}
+			if !name
+				p
+					i Hint: #{hint}
 			button
 				a(href="/cards") Move to random card
