@@ -160,7 +160,7 @@ input {
 /* Flash Cards */
 .flashcards {
   position: absolute;
-  top: 240px;
+  top: 200px;
   right: 0;
   left: 0;
   bottom: 0;
@@ -216,6 +216,11 @@ input {
 
 .card-answer {
   background-color: #D64226;
+}
+
+.hint {
+  margin-top: -20px;
+  margin-bottom: 10px;
 }
 
 .card-answer div:first-of-type {

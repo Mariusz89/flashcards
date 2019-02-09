@@ -1,10 +1,15 @@
 extends layout.pug
 
 block content
-	section#content
-		h2 Welcome #{name}
-			if !name
+	section.namecard
+		div.namecard-hello
+			p.namecard-greeting Welcome #{name}
+			if name
+				form.namecard-exit(action='/goodbye', method='post')
+					button(type='submit') 
+						img(src='/static/img/close.svg')
+			else
 				p
 					i Hint: #{hint}
-			button
-				a(href="/cards") Move to random card
+		h1.namecard-prompt Let's get started!
+		a.namecard-submit(href="/cards") Begin!
